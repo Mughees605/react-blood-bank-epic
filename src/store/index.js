@@ -7,12 +7,11 @@ import { BloodReducer } from './reducer/auth';
 
 import { AuthEpic } from './epic/auth';
 import { BloodEpic } from './epic/auth';
-import { gitEpic } from './epic/git';
+
 
 
 //combine epic
 const rootEpic = combineEpics(
-    gitEpic.getUserData,
     BloodEpic.submitRequest,
     AuthEpic.signup,
     AuthEpic.login,
@@ -21,7 +20,6 @@ const rootEpic = combineEpics(
 );
 //combine reducers
 const rootReducer = combineReducers({
-    gitReducer,
     AuthReducer,
     BloodReducer
 })

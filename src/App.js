@@ -12,6 +12,7 @@ import Dashboard from './containers/dashboard'
 import Login from './components/login'
 import Signup from './components/signup'
 import Profile from './components/profile'
+import User from "./components/user-list"
 
 function mapStateToProps(state) {
     return {
@@ -44,7 +45,7 @@ class App extends Component {
 
                 <Route path="dashboard" component={Dashboard}  >
                     <IndexRoute component={Profile} />
-                    <Route path="profile" component={Profile} />
+                    <Route path="user" component={User} />
                 </Route>
             </Router>
         );

@@ -1,6 +1,7 @@
-import React from "react"
+import React from "react";
+import {connect} from "react-redux"
 
-class App extends React.Component{
+class User extends React.Component{
     render(){
         return (
             <div>
@@ -9,4 +10,4 @@ class App extends React.Component{
         )
     }
 }
-export default connect()(App);
+export default connect()(User);
