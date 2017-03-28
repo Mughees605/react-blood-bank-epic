@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { browserHistory } from 'react-router'
 import { FlatButton, RaisedButton, TextField, Dialog } from 'material-ui';
-import { AuthActions } from './../store/action/auth'
+import { AuthActions } from '../../store/action/auth'
 
- 
+
 function mapStateToProps(state) {
     return {
         isRegistered: state.AuthReducer.isRegistered,
@@ -35,9 +35,7 @@ class Signup extends Component {
             this.setState({
                 errorPopup: true
             })
-        }
-        if (nextProps.isRegistered) {
-            browserHistory.push('/login');
+
         }
     }
 
@@ -75,8 +73,6 @@ class Signup extends Component {
                 <p>{this.props.errorMessage}</p>
 
             </Dialog>
-
-            <div>This is Login</div>
 
             <TextField defaultValue="abc" type="text" hintText="name" ref="name" /> <br />
             <TextField defaultValue="abc@abc.com" type="text" hintText="email" ref="email" /> <br />

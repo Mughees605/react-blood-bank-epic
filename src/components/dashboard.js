@@ -3,7 +3,7 @@ import {Link} from 'react-router'
 import {connect} from 'react-redux'
 import {browserHistory} from 'react-router'
 
-import {AppBar} from 'material-ui';
+import {AppBar,IconButton,FlatButton} from 'material-ui';
 
 function mapStateToProps(state) {
     return {isAuthenticated: state.AuthReducer.isAuthenticated,user:state.BloodReducer};
@@ -18,7 +18,7 @@ class Dashboard extends Component {
     render() {
         return (
             <div>
-                <AppBar title="This is Dashboard"></AppBar>
+                <AppBar title="This is Dashboard" iconElementRight={<FlatButton label="Logout"/>}></AppBar>
                 {this.props.children}
             </div>
         )

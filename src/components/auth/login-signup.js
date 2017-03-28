@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router'
 import { browserHistory } from 'react-router'
 import { connect } from 'react-redux'
-import { AppBar } from 'material-ui';
+import { AppBar, FlatButton } from 'material-ui';
 
 function mapStateToProps(state) {
     return {
@@ -19,12 +19,7 @@ class LoginSignup extends Component {
     render() {
         return (
             <div>
-                <AppBar title="This is landing page"></AppBar>
-
-                <ul>
-                    <Link to="/login">Login</Link>
-                    <Link to="/signup">Signup</Link>
-                </ul>
+                <AppBar title="This is landing page" iconElementRight={<span><Link to="/login"><FlatButton label="Login" /></Link> <Link to="/signup"><FlatButton label="Signup" /></Link></span>} ></AppBar>
                 {this.props.children}
             </div>
         )

@@ -104,6 +104,4 @@ class Profile extends Component {
         );
     }
 }
-export default connect((state) => {
-    return {user: state.authUser}
-})(Profile)
+export default connect()(Profile)

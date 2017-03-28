@@ -6,20 +6,21 @@ import {Router, Route, Link, browserHistory, IndexRoute} from 'react-router'
 import {AuthActions} from './store/action/auth';
 import {firebaseService} from './service/firebaseService';
 
-import LoginSignup from './containers/login-signup'
-import Dashboard from './containers/dashboard'
+
 import UserList from "./containers/user-list"
 
-import Login from './components/login'
-import Signup from './components/signup'
+import Dashboard from './components/dashboard'
 import Profile from './components/profile'
 import User from "./components/user-list"
 
+import Login from '././components/auth/login'
+import Signup from '././components/auth/signup'
+import LoginSignup from './components/auth/login-signup'
+
 function mapStateToProps(state) {
-    return {isAuthenticated: state.AuthReducer.isAuthenticated, user: state.BloodReducer};
+    return {isAuthenticated: state.AuthReducer.isAuthenticated};
 }
 function mapDispatchToProps(dispatch) {
-    //auto dispatch dispatch(AuthActions.isLoggedIn());
     return {
         isLoggedIn: () => dispatch(AuthActions.isLoggedIn())
     };
