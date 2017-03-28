@@ -1,4 +1,5 @@
 import { AuthActions } from "./../action/auth";
+import { BloodGroup } from "./../action/request";
 
 const INITIAL_STATE = {
     authUser: {},
@@ -50,5 +51,13 @@ export function AuthReducer(state = INITIAL_STATE, action) {
         //     return { ...state, isProcessing: false, isAuthenticated: true, authUser: action.payload };
         default:
             return state;
+    }
+}
+export function BloodReducer(state = "",action){
+    switch(action.type){
+        case BloodGroup.REQUEST_SUBMITTED:
+        return action.payload
+        default :
+        return state
     }
 }

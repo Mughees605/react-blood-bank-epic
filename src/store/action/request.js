@@ -7,8 +7,9 @@ export class BloodGroup {
     static submitRequest(payload){
 
         return {type:BloodGroup.SUBMIT_REQUEST,payload}
-    }
+    };
+
     static requestSubmitted(){
-        return{type:BloodGroup.REQUEST_SUBMITTED,submitted:true}
+        return{type:BloodGroup.REQUEST_SUBMITTED,submitted:false}
     }
 }

@@ -43,6 +43,7 @@ class Profile extends Component {
             bloodG: this.state.bloodGroupValue
         }
        dispatch(BloodGroup.submitRequest(requestBlood));
+        
     }
 
     handleChange = (event, index, value) => this.setState({ bloodGroupValue: value });

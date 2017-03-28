@@ -6,20 +6,6 @@ import { AuthActions } from './../store/action/auth';
 import { browserHistory } from 'react-router'
 import { RaisedButton, TextField } from 'material-ui';
 
-function mapStateToProps(state) {
-    return {
-        isAuthenticated: state.AuthReducer.isAuthenticated,
-        isError: state.AuthReducer.isError,
-        errorMessage: state.AuthReducer.errorMessage,
-        isProcessing: state.AuthReducer.isProcessing,
-    };
-}
-function mapDispatchToProps(dispatch) {
-    return {
-        login: (credentials) => dispatch(AuthActions.login(credentials))
-    };
-}
-
 
 class Login extends Component {
     constructor(props) {
@@ -41,13 +27,14 @@ class Login extends Component {
     }
 
     doLogin() {
+        var {dispatch} = this.props;
         var email = this.refs.email.getValue();
         var password = this.refs.password.getValue();
+        dispatch(AuthActions.login({
+            email,
+            password
+        }))
         console.log(email, password);
-        this.props.login({
-            email: email,
-            password: password
-        })
 
     }
     render() {
@@ -63,4 +50,4 @@ class Login extends Component {
         </div>)
     }
 }
-export default connect(mapStateToProps, mapDispatchToProps)(Login)
+export default connect()(Login)

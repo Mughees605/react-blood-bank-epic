@@ -3,6 +3,7 @@ import { combineEpics, createEpicMiddleware } from 'redux-observable';
 
 import { gitReducer } from './reducer/git';
 import { AuthReducer } from './reducer/auth';
+import { BloodReducer } from './reducer/auth';
 
 import { AuthEpic } from './epic/auth';
 import { BloodEpic } from './epic/auth';
@@ -21,7 +22,8 @@ const rootEpic = combineEpics(
 //combine reducers
 const rootReducer = combineReducers({
     gitReducer,
-    AuthReducer
+    AuthReducer,
+    BloodReducer
 })
 
 //creating middleware
