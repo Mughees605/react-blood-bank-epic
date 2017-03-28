@@ -16,7 +16,7 @@ import Profile from './components/profile'
 import User from "./components/user-list"
 
 function mapStateToProps(state) {
-    return {isAuthenticated: state.AuthReducer.isAuthenticated,user:state.BloodReducer};
+    return {isAuthenticated: state.AuthReducer.isAuthenticated, user: state.BloodReducer};
 }
 function mapDispatchToProps(dispatch) {
     //auto dispatch dispatch(AuthActions.isLoggedIn());

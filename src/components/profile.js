@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux'
 import {AuthActions} from './../store/action/auth';
 import {BloodGroup} from './../store/action/request';
-import {RaisedButton, TextField, SelectField, MenuItem} from 'material-ui';
+import {RaisedButton, TextField, SelectField, MenuItem, Paper} from 'material-ui';
 import {Link} from "react-router";
 import {browserHistory} from 'react-router'
 
@@ -56,45 +56,51 @@ class Profile extends Component {
     render() {
 
         return (
-            <div>
-                <RaisedButton
-                    style={{
-                    float: "right"
-                }}
-                    onClick={this
-                    .handleLogout
-                    .bind(this)}>
-                    Logout</RaisedButton>
-                <form
-                    onSubmit={this
-                    .handleRequestData
-                    .bind(this)}>
-                    <div
+            
+                <div style={{margin:"30px"}}>
+                    <h2>Donate Blood or Request Blood</h2>
+                    <RaisedButton
                         style={{
-                        width: "500px",
-                        margin: "0px auto"
-                    }}>
-                        <div>
-                            <TextField ref="name" floatingLabelText="Your name" fullWidth={true}/>
-                            <TextField ref="city" floatingLabelText="Your city" fullWidth={true}/>
-                            <SelectField
-                                floatingLabelText="BloodGroup"
-                                value={this.state.bloodGroupValue}
-                                onChange={this.handleChange}
-                                fullWidth={true}>
-                                {data
-                                    .bloodgroups
-                                    .map(bloodgroup => {
-                                        return <MenuItem key={bloodgroup} value={bloodgroup} primaryText={bloodgroup}/>
-                                    })
+                        float: "right"
+                    }}
+                        onClick={this
+                        .handleLogout
+                        .bind(this)}>
+                        Logout</RaisedButton>
+                    <Paper  zDepth={5}>
+                    
+                    <form
+                        onSubmit={this
+                        .handleRequestData
+                        .bind(this)}>
+                        <div
+                            style={{
+                            width: "500px",
+                            margin: "0px auto"
+                        }}>
+                            <div>
+                                <TextField ref="name" floatingLabelText="Your name" fullWidth={true}/>
+                                <TextField ref="city" floatingLabelText="Your city" fullWidth={true}/>
+                                 <TextField ref="age" floatingLabelText="Your age" fullWidth={true}/>
+                                <SelectField
+                                    floatingLabelText="BloodGroup"
+                                    value={this.state.bloodGroupValue}
+                                    onChange={this.handleChange}
+                                    fullWidth={true}>
+                                    {data
+                                        .bloodgroups
+                                        .map(bloodgroup => {
+                                            return <MenuItem key={bloodgroup} value={bloodgroup} primaryText={bloodgroup}/>
+                                        })
 }
-                            </SelectField>
-                            <RaisedButton type="submit" secondary={true}>Submit</RaisedButton>
+                                </SelectField>
+                                <RaisedButton type="submit" secondary={true}>Donate</RaisedButton>
+                            </div>
                         </div>
-                    </div>
-                </form>
-            </div>
-
+                    </form>
+                     </Paper>
+                </div>
+           
         );
     }
 }

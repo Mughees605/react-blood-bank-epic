@@ -6,13 +6,7 @@ class UserList extends Component{
     render(){
         return(
            <div>
-               This is the container
-               <User/>
-               {this.props.data.map(function(val,i){
-                   return (
-                       <p key={i}>{val.city}</p>
-                   )
-               })}
+               <User data = {this.props.data}/>
            </div>
         )
     }
