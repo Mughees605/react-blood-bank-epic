@@ -6,7 +6,7 @@ import {browserHistory} from 'react-router'
 import {AppBar} from 'material-ui';
 
 function mapStateToProps(state) {
-    return {isAuthenticated: state.AuthReducer.isAuthenticated};
+    return {isAuthenticated: state.AuthReducer.isAuthenticated,user:state.BloodReducer};
 }
 class Dashboard extends Component {
 

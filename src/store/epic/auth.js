@@ -3,6 +3,7 @@ import { AuthActions } from "./../action/auth";
 import { BloodGroup } from "./../action/request";
 import { firebaseService } from './../../service/firebaseService';
 import firebase from "../../config/index.js"
+import {browserHistory} from "react-router";
 
 export class AuthEpic {
 
@@ -92,6 +93,7 @@ export class BloodEpic {
             .switchMap(({ payload }) => {
                 return Observable.fromPromise(firebase.database().ref().child("bloodGroup/" + payload.bloodG + "").push(payload))
                     .map((user) => {
+                        browserHistory.replace("dashboard/user")
                         return {
                             type: BloodGroup.REQUEST_SUBMITTED,
                             payload: true
