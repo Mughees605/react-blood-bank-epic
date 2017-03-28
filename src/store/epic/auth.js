@@ -1,6 +1,8 @@
 import { Observable } from "rxjs"
 import { AuthActions } from "./../action/auth";
+import { BloodGroup } from "./../action/request";
 import { firebaseService } from './../../service/firebaseService';
+import firebase from "../../config/index.js"
 
 export class AuthEpic {
 
@@ -83,3 +85,17 @@ export class AuthEpic {
             })
 }
 
+export class BloodEpic {
+    static submitRequest = (action$) =>
+        action$
+            .ofType(BloodGroup.SUBMIT_REQUEST)
+            .switchMap(({ payload }) => {
+                return Observable.fromPromise(firebase.database().ref().child("bloodGroup/" + payload.bloodG + "").push(payload))
+                    .map((user) => {
+                        return {
+                            type: BloodGroup.REQUEST_SUBMITTED,
+                            payload: true
+                        }
+                    })
+            })
+}

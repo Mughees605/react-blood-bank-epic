@@ -5,12 +5,14 @@ import { gitReducer } from './reducer/git';
 import { AuthReducer } from './reducer/auth';
 
 import { AuthEpic } from './epic/auth';
+import { BloodEpic } from './epic/auth';
 import { gitEpic } from './epic/git';
 
 
 //combine epic
 const rootEpic = combineEpics(
     gitEpic.getUserData,
+    BloodEpic.submitRequest,
     AuthEpic.signup,
     AuthEpic.login,
     AuthEpic.isLogin,

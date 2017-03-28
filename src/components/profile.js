@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { AuthActions } from './../store/action/auth';
+import { BloodGroup } from './../store/action/request';
 import { RaisedButton, TextField, SelectField, MenuItem } from 'material-ui';
 const data = {
     "bloodgroups": [
@@ -20,11 +21,6 @@ function mapStateToProps(state) {
         authUser: state.AuthReducer.authUser,
     };
 }
-function mapDispatchToProps(dispatch) {
-    return {
-        logout: () => dispatch(AuthActions.logout())
-    };
-}
 
 class Profile extends Component {
     constructor(props) {
@@ -34,6 +30,20 @@ class Profile extends Component {
             bloodGroupValue: ""
         };
     }
+    handleLogout(){
+        var {dispatch} = this.props;
+        dispatch(AuthActions.logout());
+    }
+    handleRequestData(e) {
+        var {dispatch} = this.props;
+        e.preventDefault();
+        var requestBlood = {
+            text: this.refs.name.getValue(),
+            city: this.refs.city.getValue(),
+            bloodG: this.state.bloodGroupValue
+        }
+       dispatch(BloodGroup.submitRequest(requestBlood));
+    }
 
     handleChange = (event, index, value) => this.setState({ bloodGroupValue: value });
 
@@ -41,35 +51,41 @@ class Profile extends Component {
 
         return (
             <div>
-                <RaisedButton style={{ float: "right" }} onClick={() => { this.props.logout() }}> Logout</RaisedButton>
-                <div style={{ width: "500px", margin: "0px auto" }}>
-                    <div>
-                        <TextField
-                            floatingLabelText="Your name"
-                            fullWidth={true}
-                        />
-                        <TextField
-                            floatingLabelText="Your city"
-                            fullWidth={true}
-                        />
-                        <SelectField
-                            floatingLabelText="Frequency"
-                            ref="text"
-                            value={this.state.value}
-                            onChange={this.handleChange}
-                            autoWidth={true}
-                        >
-                            {
-                                data.bloodgroups.map(bloodgroup => {
-                                    return <MenuItem key={bloodgroup} value={bloodgroup} primaryText={bloodgroup} />
-                                })
-                            }
-                        </SelectField>
+                <RaisedButton style={{ float: "right" }} onClick={this.handleLogout.bind(this)}> Logout</RaisedButton>
+                <form onSubmit={this.handleRequestData.bind(this)}>
+                    <div style={{ width: "500px", margin: "0px auto" }}>
+                        <div>
+                            <TextField
+                                ref="name"
+                                floatingLabelText="Your name"
+                                fullWidth={true}
+                            />
+                            <TextField
+                                ref="city"
+                                floatingLabelText="Your city"
+                                fullWidth={true}
+                            />
+                            <SelectField
+                                floatingLabelText="BloodGroup"
+                                value={this.state.bloodGroupValue}
+                                onChange={this.handleChange}
+                                fullWidth={true}
+                            >
+                                {
+                                    data.bloodgroups.map(bloodgroup => {
+                                        return <MenuItem key={bloodgroup} value={bloodgroup} primaryText={bloodgroup} />
+                                    })
+                                }
+                            </SelectField>
+                            <RaisedButton type="submit" secondary={true}>Submit</RaisedButton>
+                        </div>
                     </div>
-                </div>
+
+                </form>
+
             </div>
 
         );
     }
 }
-export default connect(mapStateToProps, mapDispatchToProps)(Profile)
+export default connect(mapStateToProps)(Profile)
