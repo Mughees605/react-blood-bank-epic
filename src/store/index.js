@@ -13,6 +13,7 @@ import { BloodEpic } from './epic/auth';
 //combine epic
 const rootEpic = combineEpics(
     BloodEpic.submitRequest,
+    BloodEpic.requestUser,
     AuthEpic.signup,
     AuthEpic.login,
     AuthEpic.isLogin,

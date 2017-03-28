@@ -8,6 +8,7 @@ import {firebaseService} from './service/firebaseService';
 
 import LoginSignup from './containers/login-signup'
 import Dashboard from './containers/dashboard'
+import UserList from "./containers/user-list"
 
 import Login from './components/login'
 import Signup from './components/signup'
@@ -43,7 +44,7 @@ class App extends Component {
 
                 <Route path="dashboard" component={Dashboard}>
                     <IndexRoute component={Profile}/>
-                    <Route path="user" component={User}/>
+                    <Route path="user" component={UserList}/>
                 </Route>
             </Router>
         );
