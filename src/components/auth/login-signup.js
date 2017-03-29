@@ -19,7 +19,7 @@ class LoginSignup extends Component {
     render() {
         return (
             <div>
-                <AppBar title="This is landing page" iconElementRight={<span><Link to="/login"><FlatButton label="Login" /></Link> <Link to="/signup"><FlatButton label="Signup" /></Link></span>} ></AppBar>
+                <AppBar title="React Blood Bank" iconElementRight={<span><Link to="/login"><FlatButton label="Login" /></Link> <Link to="/signup"><FlatButton label="Signup" /></Link></span>} ></AppBar>
                 {this.props.children}
             </div>
         )

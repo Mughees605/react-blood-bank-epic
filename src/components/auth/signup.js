@@ -77,8 +77,8 @@ class Signup extends Component {
                     </Dialog>
                     <h1>Signup</h1>
                     <TextField defaultValue="abc" type="text" hintText="name" ref="name" /> <br />
-                    <TextField defaultValue="abc@abc.com" type="text" hintText="email" ref="email" /> <br />
-                    <TextField defaultValue="aaaaaa" type="password" hintText="password" ref="password" /> <br />
+                    <TextField defaultValue="" type="text" hintText="email" ref="email" /> <br />
+                    <TextField defaultValue="" type="password" hintText="password" ref="password" /> <br />
 
                     <RaisedButton secondary={true} onClick={this.doSignup}>
                         Signup

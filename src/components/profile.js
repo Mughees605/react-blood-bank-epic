@@ -53,10 +53,10 @@ class Profile extends Component {
     render() {
 
         return (
-            
-                <div style={{margin:"30px"}}>
-                    <h2>Donate Blood or Request Blood</h2>
-                    <Paper  zDepth={5}>
+             <Paper  zDepth={2} style={{width:"600px" ,margin:"0px auto"}}>
+                <div>
+                    <h2 style={{textAlign:"center"}}>Donate Blood</h2>
+                   
                     
                     <form
                         onSubmit={this
@@ -87,8 +87,9 @@ class Profile extends Component {
                             </div>
                         </div>
                     </form>
-                     </Paper>
+                    
                 </div>
+                 </Paper>
            
         );
     }

@@ -1,10 +1,10 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import {connect} from 'react-redux'
-import {Router, Route, Link, browserHistory, IndexRoute} from 'react-router'
-import {AuthActions} from './store/action/auth';
-import {firebaseService} from './service/firebaseService';
+import { connect } from 'react-redux'
+import { Router, Route, Link, browserHistory, IndexRoute } from 'react-router'
+import { AuthActions } from './store/action/auth';
+import { firebaseService } from './service/firebaseService';
 
 
 import UserList from "./containers/user-list"
@@ -20,7 +20,7 @@ import Signup from '././components/auth/signup'
 import LoginSignup from './components/auth/login-signup'
 
 function mapStateToProps(state) {
-    return {isAuthenticated: state.AuthReducer.isAuthenticated};
+    return { isAuthenticated: state.AuthReducer.isAuthenticated };
 }
 function mapDispatchToProps(dispatch) {
     return {
@@ -40,17 +40,18 @@ class App extends Component {
             <Router history={browserHistory}>
 
                 <Route path="/" component={LoginSignup}>
-                    <IndexRoute component={Login}/>
-                    <Route path="login" component={Login}/>
-                    <Route path="signup" component={Signup}/>
+                    <IndexRoute component={Login} />
+                    <Route path="login" component={Login} />
+                    <Route path="signup" component={Signup} />
                 </Route>
-
                 <Route path="dashboard" component={Dashboard}>
-                    <IndexRoute component={UserSelect}/>
-                    <Route path="thanks" component={Thanks}></Route>
-                    <Route path = "profile" component = {Profile}/>
-                    <Route path="user" component={UserList}/>
-                </Route>
+                        <IndexRoute component={UserSelect} />
+                        <Route path="thanks" component={Thanks}></Route>
+                        <Route path="profile" component={Profile} />
+                        <Route path="user" component={UserList} />
+                    </Route>
+
+
             </Router>
         );
     }

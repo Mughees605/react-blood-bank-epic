@@ -10,12 +10,6 @@ function mapStateToProps(state) {
     return { isAuthenticated: state.AuthReducer.isAuthenticated, user: state.BloodReducer };
 }
 class Dashboard extends Component {
-
-    componentWillReceiveProps(nextProps) {
-        if (!nextProps.isAuthenticated) {
-            browserHistory.replace('login');
-        }
-    }
     handleLogout() {
         var { dispatch } = this.props;
         dispatch(AuthActions.logout());

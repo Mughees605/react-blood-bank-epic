@@ -42,10 +42,10 @@ class Login extends Component {
             <Paper zDepth={3} style={{ width: "400px", margin: "50px auto", textAlign: "center" }}>
                 <div>
                     <h1>Login</h1>
-                    <TextField defaultValue="abc@abc.com" type="text" hintText="Email" ref="email" />
+                    <TextField defaultValue="mughees@google.com" type="text" hintText="Email" ref="email" />
                     <br />
                     <TextField
-                        defaultValue="aaaaaa"
+                        defaultValue="google64"
                         type="password"
                         hintText="password"
                         ref="password" />

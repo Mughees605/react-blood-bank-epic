@@ -108,7 +108,7 @@ export function BloodReducer(state = [], action) {
         case BloodGroup.REQUEST_SUBMITTED:
             return action.payload
         case BloodGroup.REQUEST_USER_COMPLETED:
-            return action.payload;
+            return action.payload
         default:
             return state
     }
