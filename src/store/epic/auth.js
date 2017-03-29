@@ -75,7 +75,8 @@ export class BloodEpic {
             return Observable
                 .fromPromise(firebase.database().ref().child("bloodGroup/" + payload.bloodG + "").push(payload))
                 .map((user) => {
-                    browserHistory.replace("dashboard/user")
+                    firebase.database().ref().child("blood").push(payload);
+                    browserHistory.replace("dashboard/thanks")
                     return {type: BloodGroup.REQUEST_SUBMITTED, payload: true}
                 })
         })

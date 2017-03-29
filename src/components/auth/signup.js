@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { browserHistory } from 'react-router'
-import { FlatButton, RaisedButton, TextField, Dialog } from 'material-ui';
+import { FlatButton, RaisedButton, TextField, Dialog, Paper } from 'material-ui';
 import { AuthActions } from '../../store/action/auth'
 
 
@@ -56,32 +56,36 @@ class Signup extends Component {
     }
 
     render() {
-        return (<div>
+        return (
+            <Paper zDepth={3} style={{ width: "400px", margin: "50px auto", textAlign: "center" }}>
+                <div>
 
-            <Dialog
-                title={"Signup Failed"}
-                modal={false}
-                open={this.state.errorPopup}
-                actions={<FlatButton
-                    label="Submit"
-                    primary={true}
-                    keyboardFocused={true}
-                    onTouchTap={() => { this.setState({ errorPopup: false }) }}
-                />}
-            >
+                    <Dialog
+                        title={"Signup Failed"}
+                        modal={false}
+                        open={this.state.errorPopup}
+                        actions={<FlatButton
+                            label="Submit"
+                            primary={true}
+                            keyboardFocused={true}
+                            onTouchTap={() => { this.setState({ errorPopup: false }) }}
+                        />}
+                    >
 
-                <p>{this.props.errorMessage}</p>
+                        <p>{this.props.errorMessage}</p>
 
-            </Dialog>
+                    </Dialog>
+                    <h1>Signup</h1>
+                    <TextField defaultValue="abc" type="text" hintText="name" ref="name" /> <br />
+                    <TextField defaultValue="abc@abc.com" type="text" hintText="email" ref="email" /> <br />
+                    <TextField defaultValue="aaaaaa" type="password" hintText="password" ref="password" /> <br />
 
-            <TextField defaultValue="abc" type="text" hintText="name" ref="name" /> <br />
-            <TextField defaultValue="abc@abc.com" type="text" hintText="email" ref="email" /> <br />
-            <TextField defaultValue="aaaaaa" type="password" hintText="password" ref="password" /> <br />
-
-            <RaisedButton primary={true} onClick={this.doSignup}>
-                Signup
+                    <RaisedButton secondary={true} onClick={this.doSignup}>
+                        Signup
             </RaisedButton>
-        </div >)
+                </div >
+            </Paper>
+        )
     }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Signup)

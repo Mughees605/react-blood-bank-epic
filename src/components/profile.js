@@ -29,10 +29,7 @@ class Profile extends Component {
         };
 
     }
-    handleLogout() {
-        var {dispatch} = this.props;
-        dispatch(AuthActions.logout());
-    }
+    
     handleRequestData(e) {
         var {dispatch} = this.props;
         e.preventDefault();
@@ -59,14 +56,6 @@ class Profile extends Component {
             
                 <div style={{margin:"30px"}}>
                     <h2>Donate Blood or Request Blood</h2>
-                    <RaisedButton
-                        style={{
-                        float: "right"
-                    }}
-                        onClick={this
-                        .handleLogout
-                        .bind(this)}>
-                        Logout</RaisedButton>
                     <Paper  zDepth={5}>
                     
                     <form

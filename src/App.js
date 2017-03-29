@@ -12,6 +12,8 @@ import UserList from "./containers/user-list"
 import Dashboard from './components/dashboard'
 import Profile from './components/profile'
 import User from "./components/user-list"
+import UserSelect from "./components/user-select"
+import Thanks from "./components/last"
 
 import Login from '././components/auth/login'
 import Signup from '././components/auth/signup'
@@ -44,7 +46,9 @@ class App extends Component {
                 </Route>
 
                 <Route path="dashboard" component={Dashboard}>
-                    <IndexRoute component={Profile}/>
+                    <IndexRoute component={UserSelect}/>
+                    <Route path="thanks" component={Thanks}></Route>
+                    <Route path = "profile" component = {Profile}/>
                     <Route path="user" component={UserList}/>
                 </Route>
             </Router>
