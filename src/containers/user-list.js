@@ -16,3 +16,4 @@ export default connect((state)=>{
         data:state.BloodReducer
     }
 })(UserList)
+

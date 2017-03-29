@@ -19,7 +19,7 @@ const data = {
     ]
 }
 
-class Profile extends Component {
+class RequestBlood extends Component {
 
     constructor(props) {
         super(props);
@@ -94,4 +94,4 @@ class Profile extends Component {
         );
     }
 }
-export default connect()(Profile)
+export default connect()(RequestBlood);

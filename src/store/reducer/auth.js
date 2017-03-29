@@ -93,12 +93,6 @@ export function AuthReducer(state = INITIAL_STATE, action) {
                 isAuthenticated: false,
                 authUser: {}
             };
-
-            // case AuthActions.LOGOUT:     return { ...state, isProcessing: true }; case
-            // AuthActions.LOGOUT_SUCCESSFUL:     return { ...state, isProcessing: false,
-            // isAuthenticated: false, authUser: {} }; case AuthActions.UPDATE_USER:
-            // return { ...state, isProcessing: false, isAuthenticated: true, authUser:
-            // action.payload };
         default:
             return state;
     }
@@ -109,6 +103,8 @@ export function BloodReducer(state = [], action) {
             return action.payload
         case BloodGroup.REQUEST_USER_COMPLETED:
             return action.payload
+        case BloodGroup.ALL_USER_FETCH:
+        return action.payload
         default:
             return state
     }

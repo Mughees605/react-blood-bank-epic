@@ -40,6 +40,7 @@ class User extends React.Component {
 
     };
     handleCheck(e) {
+        var {dispatch} = this.props;
         e.preventDefault();
         var blood = this.state.bloodGroupValue;
         var arr = [];
@@ -47,7 +48,6 @@ class User extends React.Component {
         switch (blood) {
             case "A+":
                 arr.push(['A+', 'O+', 'A-', 'O-']);
-              return  store.dispatch(BloodGroup.requestUser(arr));
 
             case "B+": {
                 arr.push(['B+', 'O+', 'B-', 'O-']);
@@ -81,7 +81,7 @@ class User extends React.Component {
             arr.push("A+")
                
         }
-       store.dispatch(BloodGroup.requestUser(arr));
+    dispatch(BloodGroup.requestUser(arr));
     }
 
     render() {
